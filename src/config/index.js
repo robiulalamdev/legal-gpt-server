@@ -18,6 +18,9 @@ const VARIABLES = {
   // Mail User
   MAIL_USER: process.env.MAIL_USER,
   MAIL_PASS: process.env.MAIL_PASS,
+
+  // OPEN AI
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY,
 };
 
 module.exports = VARIABLES;
