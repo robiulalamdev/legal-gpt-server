@@ -27,6 +27,7 @@ const sendMessage = async (req, res) => {
       }
       await messages.push({ role: "user", content: req.body.userPrompt });
       const result = await sendPromptToOpenAi(messages);
+      let newHistory = null;
       if (req.body.historyId) {
         await saveNewMessage(
           req.body?.userPrompt,
@@ -35,7 +36,7 @@ const sendMessage = async (req, res) => {
           req.user?._id
         );
       } else {
-        await createHistoryAndMessage(
+        newHistory = await createHistoryAndMessage(
           req.body?.userPrompt,
           result?.data,
           req.body?.categoryName,
@@ -46,7 +47,11 @@ const sendMessage = async (req, res) => {
         res.status(200).json({
           success: true,
           message: "Message Send Success",
-          data: result?.data,
+          data: {
+            userPrompt: req.body.userPrompt,
+            assistantResponse: result?.data,
+          },
+          history: newHistory || null,
         });
       } else {
         res.status(201).json({

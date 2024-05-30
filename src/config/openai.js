@@ -6,7 +6,6 @@ const openAi = new OpenAi({
 });
 
 const sendPromptToOpenAi = async (messages = []) => {
-  console.log(messages);
   try {
     const result = await openAi.chat.completions.create({
       model: "gpt-3.5-turbo",

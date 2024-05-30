@@ -1,6 +1,8 @@
 const express = require("express");
 const { userRoutes } = require("../modules/user/user.route");
 const { chatRoutes } = require("../modules/chat/chat.route");
+const { historyRoutes } = require("../modules/history/history.route");
+const { messageRoutes } = require("../modules/message/message.route");
 const router = express.Router();
 
 const moduleRoutes = [
@@ -11,6 +13,14 @@ const moduleRoutes = [
   {
     path: "/chats",
     route: chatRoutes,
+  },
+  {
+    path: "/chats/histories",
+    route: historyRoutes,
+  },
+  {
+    path: "/chats/messages",
+    route: messageRoutes,
   },
 ];
 

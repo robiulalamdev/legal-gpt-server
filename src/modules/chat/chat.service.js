@@ -21,7 +21,7 @@ const createHistoryAndMessage = async (
   });
 
   await newMessage.save();
-  return true;
+  return result;
 };
 
 module.exports = {
