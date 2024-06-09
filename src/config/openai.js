@@ -10,7 +10,7 @@ const sendPromptToOpenAi = async (messages = []) => {
     const result = await openAi.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: messages,
-      max_tokens: 50,
+      max_tokens: 200,
       n: 1,
       stop: null,
       temperature: 1,
