@@ -1,4 +1,4 @@
-const OpenAi = require("openAi");
+const OpenAi = require("openai");
 const VARIABLES = require(".");
 
 const openAi = new OpenAi({
